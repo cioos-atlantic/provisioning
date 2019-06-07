@@ -4,5 +4,6 @@ users.yml
 # Ignore public key files
 *.pub
 
-# Ignore PyCharm env
+# Ignore Vagrant build folder and PyCharm env
+.vagrant
 .idea
