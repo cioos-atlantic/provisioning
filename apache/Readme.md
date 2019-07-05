@@ -1,13 +1,13 @@
-#Apache reverse proxy server configuration
+# Apache reverse proxy server configuration
 
- ####File path
+#### File path
  Be sure that the following two files are placed in the right Apache configuration folder.
  
  `/etc/httpd/conf/httpd.conf`
  
  `/etc/httpd/conf/httpd-le-ssl.conf`
  
- ####Note: These require that a valid SSL (https) certificate is loaded in the file.
+#### Note: These require that a valid SSL (https) certificate is loaded in the file.
  
 ```
 ## SSL directives
