@@ -1,0 +1,3 @@
+# Ignore mysql error.log, but keep folder so container can create log.
+# TODO: What about logrotated files?
+*.log

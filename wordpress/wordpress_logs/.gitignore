@@ -1,0 +1,5 @@
+# Ignore log files
+*.log
+messages
+syslog
+/apache2/*
