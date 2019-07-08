@@ -1,0 +1,34 @@
+# =============================================================================
+# mysql:5.7
+#
+# Modification: WordPress MySQL error log Fail2Ban setup
+#
+# =============================================================================
+FROM mysql:5.7
+LABEL maintainer="Jacob Thompson <thompson.jlaw@gmail.com>"
+
+RUN apt-get update &&  \
+    apt-get install -y \
+    nano \
+    vim
+
+# Setup mysql auth log for Fail2Ban regex
+#RUN touch /var/log/mysql/error.log && \
+#    printf "# This is the MySQL login authorization log." >> /var/log/mysql/error.log
+# Note: must create log folder and error.log file on first run, otherwise container will restart continually.
+
+RUN printf "%s\n" "[mysqld]" \
+	"log_warnings = 2" \
+	"log_timestamps = SYSTEM" \
+	"log_error = /var/log/mysql/error.log" >> /etc/mysql/my.cnf
+
+# service mysql restart
+
+# Sets timezone which normally uses dpkg-reconfigure tzdata (2 for America, 65 for Halifax)
+ENV TZ=America/Halifax
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# -----------------------------------------------------------------------------
+# Set ports and env variable HOME
+# -----------------------------------------------------------------------------
+EXPOSE 3306
