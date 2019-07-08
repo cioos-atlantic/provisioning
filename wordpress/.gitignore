@@ -1,0 +1,11 @@
+# Keep system usernames private
+users.yml
+
+# Ignore public key files
+*.pub
+
+# Ignore PyCharm env
+.idea
+
+# Ignore env variables
+.env
