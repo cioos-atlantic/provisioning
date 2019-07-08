@@ -9,3 +9,6 @@ users.yml
 
 # Ignore env variables
 .env
+
+# Ignore wp-content/ directory which is the Wordpress persistent mounted volume.
+./wp-content/*
