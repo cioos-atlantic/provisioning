@@ -7,6 +7,7 @@
 # =============================================================================
 FROM wordpress:5-php7.3-apache
 LABEL maintainer="Jacob Thompson <thompson.jlaw@gmail.com>"
+ARG PROXY_IP
 
 RUN apt-get update &&  \
     apt-get install -y \
@@ -31,7 +32,7 @@ RUN sed -i -e 's|\$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat|#\$Ac
 RUN a2enmod remoteip && \
     touch /etc/apache2/conf-enabled/remoteip.conf && \
     printf "%s\n" "RemoteIPHeader X-Forwarded-For" \
-           "RemoteIPTrustedProxy " + PROXY_IP > /etc/apache2/conf-enabled/remoteip.conf
+           "RemoteIPTrustedProxy $PROXY_IP" > /etc/apache2/conf-enabled/remoteip.conf
 
 # service apache2 restart
 
@@ -88,8 +89,8 @@ RUN touch /usr/local/etc/php/conf.d/uploads.ini && \
     "max_input_time = 300" \
     "upload_tmp_dir = /var/www/html/wp-content/tmp/" > /usr/local/etc/php/conf.d/uploads.ini
 
-RUN chown www-data:root wp-content && \
-    chown -R www-data:root wp-content/uploads
+#RUN chown www-data:root /var/www/html/wp-content && \
+#    chown -R www-data:root /var/www/html/wp-content/uploads
 
 # -----------------------------------------------------------------------------
 # Set ports and env variable HOME

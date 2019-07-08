@@ -8,6 +8,8 @@ x-wordpress: &wordpress_app
   build:
     context: .
     dockerfile: ./wordpress/Dockerfile
+    args:
+      PROXY_IP: ${PROXY_IP}
 
   links:
     - wp_db
@@ -22,7 +24,6 @@ x-wordpress: &wordpress_app
     WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
     WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
     WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
-    PROXY_IP: ${PROXY_IP}
     WORDPRESS_CONFIG_EXTRA: |
       define('FS_METHOD', 'direct');
       define('WP_FAIL2BAN_PLUGIN_LOG_XMLRPC', true);
