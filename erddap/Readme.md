@@ -1,5 +1,8 @@
 # ERDDAP server configuration
 
+See details here:
+https://github.com/ioos/erddap-gold-standard
+
 #### Download ERDDAP gold standard repository and run container.
 
 ```
