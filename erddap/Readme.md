@@ -13,12 +13,12 @@ cd erddap-gold-standard/
 
 ## The following run command mounts several volumes to the erddap-gold-standard sub-folders.
 ## This means our data will be persistent even if the container is removed/recreated.
-sudo docker run -d -p 8080:8080 --restart=unless-stopped --name erddap 
--v $(pwd)/erddap/conf/setenv.sh:/usr/local/tomcat/bin/setenv.sh 
--v $(pwd)/erddap/conf/robots.txt:/usr/local/tomcat/webapps/ROOT/robots.txt 
--v $(pwd)/erddap/content:/usr/local/tomcat/content/erddap 
--v $(pwd)/erddap/data:/erddapData 
--v $(pwd)/datasets:/datasets 
+sudo docker run -d -p 8080:8080 --restart=unless-stopped --name erddap \
+-v $(pwd)/erddap/conf/setenv.sh:/usr/local/tomcat/bin/setenv.sh \
+-v $(pwd)/erddap/conf/robots.txt:/usr/local/tomcat/webapps/ROOT/robots.txt \ 
+-v $(pwd)/erddap/content:/usr/local/tomcat/content/erddap \
+-v $(pwd)/erddap/data:/erddapData \
+-v $(pwd)/datasets:/datasets \
 -v /tmp/:/usr/local/tomcat/temp/ axiom/docker-erddap:1.82
 ```
 
