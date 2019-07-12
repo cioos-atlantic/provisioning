@@ -9,6 +9,11 @@
    The OpenRC file you downloaded from the OpenStack dashboard.
 .EXAMPLE
    Source-OpenRC H:\project-openrc.sh
+.ORIGINAL_AUTHOR_SOURCE
+   https://raw.githubusercontent.com/naturalis/powershell/master/Source-OpenRC.ps1
+   https://github.com/naturalis/openstack-docs/wiki/Howto:-Installing-and-configuring-the-OpenStack-commandline-tools-on-Windows
+.MODIFIED_DATE_AUTHOR:
+   July 12th 2019, by Jacob Thompson
 #>
 
 If ($args.count -lt 1) {
