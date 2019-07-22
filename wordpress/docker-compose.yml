@@ -10,6 +10,7 @@ x-wordpress: &wordpress_app
     dockerfile: ./wordpress/Dockerfile
     args:
       PROXY_IP: ${PROXY_IP}
+      BASE_URL: ${BASE_URL}
 
   links:
     - wp_db

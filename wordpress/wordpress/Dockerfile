@@ -8,6 +8,7 @@
 FROM wordpress:5-php7.3-apache
 LABEL maintainer="Jacob Thompson <jacob.thompson@wiwasolvet.ca>"
 ARG PROXY_IP
+ARG BASE_URL
 
 RUN apt-get update &&  \
     apt-get install -y \
@@ -91,6 +92,23 @@ RUN touch /usr/local/etc/php/conf.d/uploads.ini && \
 
 #RUN chown www-data:root /var/www/html/wp-content && \
 #    chown -R www-data:root /var/www/html/wp-content/uploads
+
+RUN printf "%s\n" "ServerTokens Prod" \
+    "ServerSignature Off" \
+    "Header add Content-Security-Policy: \"default-src $BASE_URL https://fonts.gstatic.com; style-src https://fonts.googleapis.com $BASE_URL 'unsafe-inline';\"" \
+    "Header set X-Content-Type-Options: \"nosniff\"" \
+    "Header always set X-Xss-Protection \"1; mode=block\"" >> /etc/apache2/conf-enabled/security.conf
+
+RUN printf "%s\n" "<IfModule mod_headers.c>" \
+    "Header unset Server" \
+    "Header always unset X-Powered-By:" \
+    "Header unset X-Powered-By" \
+    "Header unset X-CF-Powered-By" \
+    "Header unset X-Mod-Pagespeed" \
+    "Header unset X-Pingback" \
+    "Header always set X-Frame-Options \"SAMEORIGIN\"" \
+    "Header always set Strict-Transport-Security \"max-age=31536000; includeSubDomains\"" \
+    "</IfModule>" >> /etc/apache2/apache2.conf
 
 # -----------------------------------------------------------------------------
 # Set ports and env variable HOME
