@@ -5,7 +5,7 @@
 #
 # =============================================================================
 FROM mysql:5.7
-LABEL maintainer="Jacob Thompson <thompson.jlaw@gmail.com>"
+LABEL maintainer="Jacob Thompson <jacob.thompson@wiwasolvet.ca>"
 
 RUN apt-get update &&  \
     apt-get install -y \

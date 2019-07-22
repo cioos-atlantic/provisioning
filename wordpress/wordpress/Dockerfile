@@ -6,7 +6,7 @@
 #
 # =============================================================================
 FROM wordpress:5-php7.3-apache
-LABEL maintainer="Jacob Thompson <thompson.jlaw@gmail.com>"
+LABEL maintainer="Jacob Thompson <jacob.thompson@wiwasolvet.ca>"
 ARG PROXY_IP
 
 RUN apt-get update &&  \
