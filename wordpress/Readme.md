@@ -50,3 +50,7 @@ docker-compose stop
 ## To stop and remove all the containers/network
 docker-compose down
 ```
+
+## Apache Security Headers in WordPress Dockerfile
+
+Please note that after updating or adding plugins, making CSS style changes or other design changes, it may require updating the Content-Security-Policy header rules to ensure all files are served.
