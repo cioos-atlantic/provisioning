@@ -20,6 +20,9 @@ Without the correct linux permissions i.e. the ability to write to the file path
 ```bash
 ## While in Centos server terminal (not wordpress container)
 sudo mkdir /var/www/html/wp-content/
+
+## The temp folder enables uploading files like plugins.zip files and media content.
+cd /var/www/html/wp-content/
 sudo mkdir tmp
 ```
 
@@ -42,26 +45,21 @@ sudo nano .env
 ```bash
 ## For a standard detached build use case and bring the containers online: 
 sudo systemctl restart docker
-docker-compose up -d --build
+sudo docker-compose up -d --build
 
 ## To use a different docker-compose.yml file other than the default, try the following command, this will also add a flag "a_" in front of the build names if desired.
-docker-compose -f docker-compose_dockerfile.yml -p="a_" up -d --build
+sudo docker-compose -f docker-compose_dockerfile.yml -p="a_" up -d --build
 
 ## To stop all the docker containers associated with the docker-compose file.
-docker-compose stop
+sudo docker-compose stop
 
 ## To stop and remove all the containers/network (this will remove any files in the container)
-docker-compose down
+sudo docker-compose down
 ```
 
-#### Ensure WordPress wp-content temp folder exists
+#### Ensure WordPress wp-content temp folder exists and permissions allow upload files
 
 ```bash
-## While in Centos server terminal (not wordpress container)
-## The temp folder enables uploading files like plugins.zip files and media content.
-cd /var/www/html/wp-content
-sudo mkdir tmp
-
 ## Next access the WordPress container environment
 docker exec -it wordpress bash
 
