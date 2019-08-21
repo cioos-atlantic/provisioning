@@ -1,0 +1,5 @@
+# Ignore PyCharm env
+.idea
+
+# Ignore OpenStack images
+*.qcow2

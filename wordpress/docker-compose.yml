@@ -1,0 +1,60 @@
+version: '3.4'
+
+x-wordpress: &wordpress_app
+  container_name: wordpress
+  depends_on:
+    - wp_db
+  image: wordpress-5-php7.3-apache-mod
+  build:
+    context: .
+    dockerfile: ./wordpress/Dockerfile
+    args:
+      PROXY_IP: ${PROXY_IP}
+      BASE_URL: ${BASE_URL}
+
+  links:
+    - wp_db
+  ports:
+    - "0.0.0.0:8500:80"
+  restart: always
+  volumes:
+    - ${WP_CONTENT}:/var/www/html/wp-content
+    - ${WP_LOGS}:/var/log
+  environment:
+    WORDPRESS_DB_HOST: wp_db:3306
+    WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+    WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    WORDPRESS_CONFIG_EXTRA: |
+      define('FS_METHOD', 'direct');
+      define('WP_FAIL2BAN_PLUGIN_LOG_XMLRPC', true);
+      @ini_set( 'upload_max_filesize' , '256M' );
+      @ini_set( 'post_max_size', '256M');
+      @ini_set( 'memory_limit', '512M' );
+      @ini_set( 'max_execution_time', '300' );
+      @ini_set( 'max_input_time', '300' );
+
+volumes:
+    wordpress_db_data: {}
+
+services:
+   wordpress:
+     <<: *wordpress_app
+
+   wp_db:
+     container_name: wp_db
+     image: mysql-5.7-mod
+     build:
+       context: .
+       dockerfile: mysql/Dockerfile
+     ports:
+       - "0.0.0.0:3306:3306"
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_DATABASE: ${MYSQL_DATABASE}
+       MYSQL_USER: ${MYSQL_USER}
+       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+     volumes:
+       - wordpress_db_data:/var/lib/mysql
+       - ${MYSQL_LOGS}:/var/log
