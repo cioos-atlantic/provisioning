@@ -17,7 +17,12 @@ https://developer.wordpress.org/cli/commands/
 ```bash
 # Login to source server.
 cd /var/www/html/wp-content/
-sudo docker run -it --rm --volumes-from wordpress --user xfs:root --network wordpress_default wordpress:cli db export ./dev_wp_db_2019_08_14_b.sql
+
+# Details on why skipping lock-tables is useful on MySQL databases using Innodb engine on all the tables
+# https://serversforhackers.com/c/mysqldump-with-modern-mysql
+# Great list of extra fields that can be passed into wp-cli for mysqldump
+# https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-option-summary
+sudo docker run -it --rm --volumes-from wordpress --user xfs:root --network wordpress_default wordpress:cli db export --single-transaction --skip-lock-tables ./wp-content/dev_wp_db_2019_08_23.sql
 
 # Login to destination server.
 scp -i ~/.ssh/centos_2_rsa username@192.168.153.XXX:/var/www/html/wp-content/dev_wp_db_2019_08_14.sql /var/www/html/wp-content/
