@@ -17,8 +17,7 @@ Export Postgres user table (with hashed passwords) and copy.
 ```bash
 # Export user table from source CKAN (206.XXX.XXX.XXX)
 # pg_dump -h CKAN_DBHOST -P CKAN_DBPORT -U CKAN_DBUSER -a -O -t user -f user.sql ckan_default
-docker exec -it db pg_dump -h 127.0.0.1 -p 5432 -U ckan -a -O -t user -f user.sql
-docker cp db:/user.sql /home/username/
+docker exec db pg_dump -h 127.0.0.1 -p 5432 -U ckan -a -O -t user > /home/username/user.sql
 # Copy user table into destination CKAN (192.168.153.XXX)
 scp -i ~/.ssh/centos_2_rsa username@192.168.153.XXX:/home/username/user.sql /home/username/
 ```
