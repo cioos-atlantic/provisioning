@@ -20,6 +20,8 @@ x-wordpress: &wordpress_app
   volumes:
     - ${WP_CONTENT}:/var/www/html/wp-content
     - ${WP_LOGS}:/var/log
+    - ${WEB_ACCESS_FOLDER}:/var/www/html/docs
+    - ${METADATA_FOLDER}:/var/www/html/metadata
   environment:
     WORDPRESS_DB_HOST: wp_db:3306
     WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
