@@ -95,7 +95,7 @@ RUN touch /usr/local/etc/php/conf.d/uploads.ini && \
 
 RUN printf "%s\n" "ServerTokens Prod" \
     "ServerSignature Off" \
-    "Header add Content-Security-Policy: \"default-src $BASE_URL https://fonts.gstatic.com; style-src $BASE_URL https://fonts.googleapis.com https://netdna.bootstrapcdn.com 'unsafe-inline'; script-src $BASE_URL https://dl.dropboxusercontent.com/s/pxxqg90g7zxtt8n/ 'self' 'unsafe-eval' 'unsafe-inline'; font-src $BASE_URL 'self' data: fonts.gstatic.com https://netdna.bootstrapcdn.com; img-src $BASE_URL https://secure.gravatar.com 'self' data:;\"" \
+    "Header add Content-Security-Policy: \"default-src $BASE_URL https://fonts.gstatic.com; style-src $BASE_URL https://fonts.googleapis.com https://netdna.bootstrapcdn.com https://cdn-images.mailchimp.com/embedcode/ 'unsafe-inline'; script-src $BASE_URL https://dl.dropboxusercontent.com/s/pxxqg90g7zxtt8n/ https://www.googletagmanager.com/gtag/ https://www.google-analytics.com 'self' 'unsafe-eval' 'unsafe-inline'; font-src $BASE_URL 'self' data: fonts.gstatic.com https://netdna.bootstrapcdn.com; img-src $BASE_URL https://secure.gravatar.com https://dev.cioosatlantic.ca/wp-content/uploads/ https://www.google-analytics.com 'self' data:;\"" \
     "Header set X-Content-Type-Options: \"nosniff\"" \
     "Header always set X-Xss-Protection \"1; mode=block\"" >> /etc/apache2/conf-enabled/security.conf
 
