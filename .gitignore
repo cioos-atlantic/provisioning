@@ -6,3 +6,6 @@ users.yml
 
 # Ignore PyCharm env
 .idea
+
+# Ignore CKAN sub-repo
+/ckan
