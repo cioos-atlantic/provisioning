@@ -12,3 +12,10 @@ users.yml
 
 # Ignore ERDDAP sub-repo
 /erddap
+
+# Ignore http-observatory
+/http-observatory
+
+# Ignore Atlantic sub repo Asset Map folder
+/atlantic
+!/atlantic/.gitignore
