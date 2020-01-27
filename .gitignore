@@ -11,7 +11,7 @@ users.yml
 /ckan
 
 # Ignore ERDDAP sub-repo
-/erddap
+/erddap-gold-standard
 
 # Ignore http-observatory
 /http-observatory
