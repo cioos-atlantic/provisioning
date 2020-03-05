@@ -84,8 +84,8 @@ RUN touch /usr/local/etc/php/conf.d/brotli.ini && \
 RUN touch /usr/local/etc/php/conf.d/uploads.ini && \
     printf "%s\n" "file_uploads = On" \
     "memory_limit = 512M" \
-    "upload_max_filesize = 256M" \
-    "post_max_size = 256M" \
+    "upload_max_filesize = 512M" \
+    "post_max_size = 512M" \
     "max_execution_time = 300" \
     "max_input_time = 300" \
     "upload_tmp_dir = /var/www/html/wp-content/tmp/" > /usr/local/etc/php/conf.d/uploads.ini
