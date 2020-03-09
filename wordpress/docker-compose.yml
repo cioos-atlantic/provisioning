@@ -31,8 +31,8 @@ x-wordpress: &wordpress_app
     WORDPRESS_CONFIG_EXTRA: |
       define('FS_METHOD', 'direct');
       define('WP_FAIL2BAN_PLUGIN_LOG_XMLRPC', true);
-      @ini_set( 'upload_max_filesize' , '256M' );
-      @ini_set( 'post_max_size', '256M');
+      @ini_set( 'upload_max_filesize' , '512M' );
+      @ini_set( 'post_max_size', '512M');
       @ini_set( 'memory_limit', '512M' );
       @ini_set( 'max_execution_time', '300' );
       @ini_set( 'max_input_time', '300' );
