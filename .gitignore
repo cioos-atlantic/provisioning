@@ -4,3 +4,18 @@ users.yml
 # Ignore public key files
 *.pub
 
+# Ignore PyCharm env
+.idea
+
+# Ignore CKAN sub-repo
+/ckan
+
+# Ignore ERDDAP sub-repo
+/erddap
+
+# Ignore http-observatory
+/http-observatory
+
+# Ignore Atlantic sub repo Asset Map folder
+/atlantic
+!/atlantic/.gitignore
