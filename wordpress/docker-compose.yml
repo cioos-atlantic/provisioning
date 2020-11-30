@@ -4,7 +4,7 @@ x-wordpress: &wordpress_app
   container_name: wordpress
   depends_on:
     - wp_db
-  image: wordpress-5-php7.3-apache-mod
+  image: wordpress-5-php7.4-apache-mod
   build:
     context: .
     dockerfile: ./wordpress/Dockerfile
