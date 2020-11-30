@@ -1,11 +1,11 @@
 # =============================================================================
-# wordpress:5-php7.3-apache
+# wordpress:5-php7.4-apache
 #
-# WordPress 5.*, Apache 2.4, PHP 7.3
+# WordPress 5.*, Apache 2.4, PHP 7.4
 # Modification: Rsyslog/Fail2Ban setup
 #
 # =============================================================================
-FROM wordpress:5-php7.3-apache
+FROM wordpress:5-php7.4-apache
 LABEL maintainer="Jacob Thompson <jacob.thompson@wiwasolvet.ca>"
 ARG PROXY_IP
 ARG BASE_URL
