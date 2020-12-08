@@ -1,3 +1,6 @@
 [submodule "erddap-gold-standard"]
 	path = erddap-gold-standard
 	url = git@github.com:cioos-atlantic/erddap-gold-standard.git
+[submodule "xeosbuoy"]
+	path = xeosbuoy
+	url = git@github.com:cioos-atlantic/xeosbuoy.git
