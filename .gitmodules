@@ -4,3 +4,6 @@
 [submodule "xeosbuoy"]
 	path = xeosbuoy
 	url = git@github.com:cioos-atlantic/xeosbuoy.git
+[submodule "ckan"]
+	path = ckan
+	url = git@github.com:cioos-siooc/ckan.git
