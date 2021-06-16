@@ -1,3 +1,6 @@
 [submodule "erddap-gold-standard"]
 	path = erddap-gold-standard
 	url = git@github.com:cioos-atlantic/erddap-gold-standard.git
+[submodule "ckan"]
+	path = ckan
+	url = git@github.com:cioos-siooc/ckan.git
