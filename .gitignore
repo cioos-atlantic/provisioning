@@ -7,9 +7,6 @@ users.yml
 # Ignore PyCharm env
 .idea
 
-# Ignore ERDDAP sub-repo
-/erddap
-
 # Ignore http-observatory
 /http-observatory
 

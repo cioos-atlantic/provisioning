@@ -23,7 +23,6 @@ x-wordpress: &wordpress_app
     - ${WEB_ACCESS_FOLDER}:/var/www/html/docs
     - ${METADATA_FOLDER}:/var/www/html/metadata
     - ${PROFILE_FOLDER}:/var/www/html/profile
-    - ${GOACCESS_FOLDER}:/var/www/html/goaccess
   environment:
     WORDPRESS_DB_HOST: wp_db:3306
     WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
