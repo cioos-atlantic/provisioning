@@ -1,6 +1,0 @@
----
-users:
-- username: "testuser"
-  groups: "group1,group2"
-- username: "testuser2"
-  group: "group2"

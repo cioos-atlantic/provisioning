@@ -1,6 +1,4 @@
 # Provisioning
-* Ansible playbooks
-  * Scripts to add shell users to base system
 * Apache configs
 * CKAN
   * Configuration files
