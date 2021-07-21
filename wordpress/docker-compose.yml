@@ -21,6 +21,7 @@ x-wordpress: &wordpress_app
     - ${WP_CONTENT}:/var/www/html/wp-content
     - ${WP_LOGS}:/var/log
     - ${WEB_ACCESS_FOLDER}:/var/www/html/docs
+    - ${CMAR_ACCESS_FOLDER}:/var/www/html/cmar
     - ${METADATA_FOLDER}:/var/www/html/metadata
     - ${PROFILE_FOLDER}:/var/www/html/profile
   environment:
