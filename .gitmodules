@@ -4,3 +4,12 @@
 [submodule "ckan"]
 	path = ckan
 	url = git@github.com:cioos-siooc/ckan.git
+[submodule "data-transform/CMAR-to-CIOOS-data-converter"]
+	path = data-transform/CMAR-to-CIOOS-data-converter
+	url = git@github.com:PiscesRPM/CMAR-to-CIOOS-data-converter.git
+[submodule "data-transform/cioos-siooc_data_transform"]
+	path = data-transform/cioos-siooc_data_transform
+	url = git@github.com:cioos-siooc/cioos-siooc_data_transform.git
+[submodule "data-transform/atlantic-data-transform"]
+	path = data-transform/atlantic-data-transform
+	url = git@github.com:cioos-atlantic/atlantic-data-transform.git
