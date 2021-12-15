@@ -1,0 +1,19 @@
+version: '3.4'
+
+x-ipt: &ipt_app
+  container_name: ipt
+  image: gbif/ipt
+  build:
+    context: .
+    dockerfile: Dockerfile
+
+  ports:
+    - "0.0.0.0:8888:8080"
+  restart: always
+  volumes:
+    - ${IPT_FOLDER}:/srv/ipt
+
+services:
+   ipt:
+     <<: *ipt_app
+
